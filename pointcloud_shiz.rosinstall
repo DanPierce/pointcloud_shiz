@@ -1,0 +1,5 @@
+# This repo contains 3D mapping 
+- git:
+    local-name: pointcloud_shiz
+    uri: 'https://github.com/DanPierce/pointcloud_shiz.git'
+    version: 'master'
