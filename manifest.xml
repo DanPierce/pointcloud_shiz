@@ -1,0 +1,16 @@
+<package>
+  <description brief="pointcloud_shiz">
+
+     pointcloud_shiz
+
+  </description>
+  <author>Dan Pierce</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/pointcloud_shiz</url>
+
+  <depend package="openni_tracker"/>
+
+</package>
+
+
