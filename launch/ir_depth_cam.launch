@@ -21,7 +21,7 @@
     </include>
 
     <!-- rViz -->
-    <node name="rviz" pkg="rviz" type="rviz"
-    args="-d $(find pointcloud_shiz)/cfg/asusviz.vcg" required="true" output="screen"/>
+    <!-- <node name="rviz" pkg="rviz" type="rviz"
+    args="-d $(find pointcloud_shiz)/cfg/asusviz.vcg" required="true" output="screen"/> -->
 
 </launch>

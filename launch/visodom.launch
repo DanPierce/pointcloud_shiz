@@ -1,0 +1,21 @@
+<launch>
+
+	<!-- robot model -->
+    <!--<include file="$(find marv_description)/launch/transforms.launch"/>-->
+
+	<!-- Asus -->
+<!--     <include file="$(find asus_cv)/launch/asus.launch"/> -->
+
+    <node pkg="viso2_ros" type="mono_odometer" name="viso">
+    	<remap from="image" to="/camera/rgb/image_color"/>
+    	<param name="camera_height" value="0.2"/>
+    	<param name="camera_pitch" value="-0.349"/>
+    </node>
+
+    <!-- slam -->
+    
+
+	<!-- rViz -->
+    <!--<node name="rviz" pkg="rviz" type="rviz" required="true" output="screen" args="-d $(find marv_launch)/rviz/viso2.vcg" />-->
+
+</launch>
