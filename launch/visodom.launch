@@ -9,8 +9,8 @@
     <node pkg="viso2_ros" type="mono_odometer" name="viso">
     	<remap from="image" to="/camera/rgb/image_color"/>
     	<param name="camera_height" value="0.2"/>
-    	<param name="camera_pitch" value="-0.349"/>
-    </node>
+        <param name="sensor_frame_id" value="/asus_link"/>
+     </node>
 
     <!-- slam -->
     

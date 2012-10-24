@@ -10,6 +10,7 @@
 
     <!-- asus pointcloud and frame ids -->
     <include file="$(find openni_launch)/launch/openni.launch">
+      <arg name="camera" value="asus"/>
     <!-- <node pkg="nodelet" type="nodelet" name="openni_camera" args="load openni_camera/OpenNINodelet openni_manager" respawn="true"/> -->
         <!-- <arg name="device_id" value="#1"/> -->
         <!-- <arg name="respawn" value="true"/> -->
