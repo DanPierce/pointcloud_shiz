@@ -29,27 +29,17 @@
         <param name="temporalUpdate" value="0.1"/>
     </node>
 
-  <!-- launch octomap -->
-  <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
-    <param name="resolution" value="0.05" />
-    <!-- fixed map frame (set to 'map' if SLAM or localization running!) -->
-    <param name="frame_id" type="string" value="map" />
-    <!-- maximum range to integrate (speedup!) -->
-    <param name="max_sensor_range" value="5.0" />
-    <param name="latch" value="false" />
-    <param name="pointcloud_min_z" value=".1" />
-    <param name="pointcloud_max_z" value="2.0" />
-    <!-- data source to integrate (PointCloud2) -->
-    <remap from="cloud_in" to="/asus/depth_registered/points" />
-
-  </node>
-
-    <!-- Start the asus -->
-  <include file="$(find pointcloud_shiz)/launch/ir_depth_cam.launch"/>
 
     <!-- Start the move_base Node -->
     <include file="$(find gavlab_atrv_2dnav)/launch/move_base_slam.xml" />
 
+  <!-- Start the node to kill explore and go to block -->
+  <node pkg="marv_nav" type="go_to_block.py" name="go_to_block"/>
+
+    <!-- Start the node to kill explore and go to block -->
+  <node pkg="marv_nav" type="cmap_block_detect.py" name="cmap_block_detect"/>
+
+
   <!-- Start the node that opens rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" required="true" output="screen" args="-d $(find pointcloud_shiz)/cfg/3dmap_move_base.vcg" /> 
+  <node name="rviz" pkg="rviz" type="rviz" required="true" output="screen" args="-d $(find gavlab_atrv_2dnav)/config/slam/move_base.vcg" />
 </launch>

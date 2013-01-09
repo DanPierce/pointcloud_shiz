@@ -36,8 +36,12 @@
     <param name="frame_id" type="string" value="map" />
     <!-- maximum range to integrate (speedup!) -->
     <param name="max_sensor_range" value="5.0" />
+    <param name="latch" value="false" />
+    <param name="pointcloud_min_z" value=".1" />
+    <param name="pointcloud_max_z" value="2.0" />
     <!-- data source to integrate (PointCloud2) -->
     <remap from="cloud_in" to="/asus/depth_registered/points" />
+
   </node>
 
     <!-- Start the asus -->
@@ -58,5 +62,5 @@
   </node>
 
   <!-- Start the node that opens rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" required="true" output="screen" args="-d $(find pointcloud_shiz)/cfg/3dmap.vcg" />
+  <!-- <node name="rviz" pkg="rviz" type="rviz" required="true" output="screen" args="-d $(find pointcloud_shiz)/cfg/3dmap.vcg" /> -->
 </launch>

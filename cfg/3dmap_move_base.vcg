@@ -1,13 +1,19 @@
-3d\ Map.Enabled=1
-3d\ Map.Marker\ Array\ Topic=/occupied_cells_vis_array
-3d\ Map.Queue\ Size=100
-3d\ Map.map=1
+3D\ Map.Enabled=1
+3D\ Map.Marker\ Array\ Topic=/occupied_cells_vis_array
+3D\ Map.Queue\ Size=100
+3D\ Map.map=1
 Background\ ColorB=0.72549
 Background\ ColorG=0.72549
 Background\ ColorR=0.72549
-Camera\ Config=0.269797 2.85541 3.73972 0.305163 0.0122073 0.0728035
+Camera\ Config=0.284797 2.85041 3.73972 0.305163 0.0122073 0.0728035
 Camera\ Type=rviz::OrbitViewController
 Fixed\ Frame=/base_footprint
+Global\ Plan.Alpha=1
+Global\ Plan.ColorB=0
+Global\ Plan.ColorG=1
+Global\ Plan.ColorR=0.1
+Global\ Plan.Enabled=1
+Global\ Plan.Topic=/move_base/TrajectoryPlannerROS/global_plan
 Grid.Alpha=0.5
 Grid.Cell\ Size=1
 Grid.ColorB=0.5
@@ -23,10 +29,28 @@ Grid.OffsetZ=0
 Grid.Plane=0
 Grid.Plane\ Cell\ Count=10
 Grid.Reference\ Frame=<Fixed Frame>
+Inflated\ Obstacles.Alpha=1
+Inflated\ Obstacles.ColorB=1
+Inflated\ Obstacles.ColorG=0
+Inflated\ Obstacles.ColorR=0.333333
+Inflated\ Obstacles.Enabled=0
+Inflated\ Obstacles.Topic=/move_base/local_costmap/inflated_obstacles
+Local\ Plan.Alpha=1
+Local\ Plan.ColorB=1
+Local\ Plan.ColorG=0
+Local\ Plan.ColorR=0.333333
+Local\ Plan.Enabled=1
+Local\ Plan.Topic=/move_base/TrajectoryPlannerROS/local_plan
 Map.Alpha=0.7
 Map.Draw\ Behind=1
 Map.Enabled=1
 Map.Topic=/map
+Obstacles.Alpha=1
+Obstacles.ColorB=0
+Obstacles.ColorG=0
+Obstacles.ColorR=1
+Obstacles.Enabled=0
+Obstacles.Topic=/move_base/local_costmap/obstacles
 Odometry.Angle\ Tolerance=0.1
 Odometry.ColorB=0
 Odometry.ColorG=0.1
@@ -36,9 +60,15 @@ Odometry.Keep=100
 Odometry.Length=1
 Odometry.Position\ Tolerance=0.1
 Odometry.Topic=/atrv_node/odom
-Property\ Grid\ Splitter=919,78
-Property\ Grid\ State=expanded=.Global Options,3d Map.Enabled;splitterratio=0.5
-QMainWindow=000000ff00000000fd00000003000000000000011d00000437fc0200000001fb000000100044006900730070006c006100790073000000001d00000437000000ee00ffffff000000010000013100000437fc0200000003fb0000001e0054006f006f006c002000500072006f0070006500720074006900650073000000001d0000017d0000006700fffffffc0000001d000004370000000000fffffffa000000000100000002fb0000000c00430061006d0065007200610000000000ffffffff0000000000000000fb0000000a00560069006500770073000000028e000001310000013100fffffffb0000001200530065006c0065006300740069006f006e00000001ff000000a50000006700ffffff000000030000047f0000003efc0100000001fb0000000800540069006d006501000000000000047f000002bf00ffffff0000047f0000043700000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+Planner\ Plan.Alpha=1
+Planner\ Plan.ColorB=0
+Planner\ Plan.ColorG=1
+Planner\ Plan.ColorR=0.1
+Planner\ Plan.Enabled=1
+Planner\ Plan.Topic=/move_base/NavfnROS/plan
+Property\ Grid\ Splitter=883,78
+Property\ Grid\ State=expanded=.Global Options,3D Map.Enabled,3D Map.Namespaces;splitterratio=0.5
+QMainWindow=000000ff00000000fd00000003000000000000014000000413fc0200000001fb000000100044006900730070006c006100790073000000001d00000413000000ee00ffffff000000010000013100000413fc0200000003fb0000001e0054006f006f006c002000500072006f0070006500720074006900650073000000001d000001700000006700fffffffc0000001d000004130000000000fffffffa000000000100000002fb0000000c00430061006d0065007200610000000000ffffffff0000000000000000fb0000000a00560069006500770073000000028e000001310000013100fffffffb0000001200530065006c0065006300740069006f006e00000001ff000000a50000006700ffffff000000030000046f0000003efc0100000001fb0000000800540069006d006501000000000000046f000002bf00ffffff0000046f0000041300000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
 Robot\ Model.Alpha=1
 Robot\ Model.Collision\ Enabled=0
 Robot\ Model.Enabled=1
@@ -96,11 +126,11 @@ Sick..IntensityChannel\ Name=intensity
 Sick..IntensityMax\ ColorB=1
 Sick..IntensityMax\ ColorG=1
 Sick..IntensityMax\ ColorR=1
-Sick..IntensityMax\ Intensity=805
+Sick..IntensityMax\ Intensity=806
 Sick..IntensityMin\ ColorB=0
 Sick..IntensityMin\ ColorG=0
 Sick..IntensityMin\ ColorR=0
-Sick..IntensityMin\ Intensity=346
+Sick..IntensityMin\ Intensity=349
 Sick..IntensityUse\ full\ RGB\ spectrum=0
 Sick.Alpha=1
 Sick.Billboard\ Size=0.01
@@ -129,6 +159,15 @@ Name=Grid
 [Display1]
 ClassName=rviz::TFDisplay
 Name=TF
+[Display10]
+ClassName=rviz::PathDisplay
+Name=Local Plan
+[Display11]
+ClassName=rviz::PathDisplay
+Name=Planner Plan
+[Display12]
+ClassName=rviz::MarkerArrayDisplay
+Name=3D Map
 [Display2]
 ClassName=rviz::RobotModelDisplay
 Name=Robot Model
@@ -145,10 +184,16 @@ Name=Map
 ClassName=rviz::OdometryDisplay
 Name=Odometry
 [Display7]
-ClassName=rviz::MarkerArrayDisplay
-Name=3d Map
+ClassName=rviz::GridCellsDisplay
+Name=Obstacles
+[Display8]
+ClassName=rviz::GridCellsDisplay
+Name=Inflated Obstacles
+[Display9]
+ClassName=rviz::PathDisplay
+Name=Global Plan
 [Window]
-Height=1212
-Width=1167
-X=-259
-Y=-183
+Height=1176
+Width=1151
+X=-212
+Y=-411

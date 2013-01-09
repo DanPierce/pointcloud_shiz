@@ -29,6 +29,9 @@
         <param name="temporalUpdate" value="0.1"/>
     </node>
 
+    <!-- Start the node to explore environment -->
+    <include file="$(find gavlab_atrv_2dnav)/launch/explore.xml"/>
+    
   <!-- launch octomap -->
   <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
     <param name="resolution" value="0.05" />
@@ -37,7 +40,7 @@
     <!-- maximum range to integrate (speedup!) -->
     <param name="max_sensor_range" value="5.0" />
     <param name="latch" value="false" />
-    <param name="pointcloud_min_z" value=".1" />
+    <param name="pointcloud_min_z" value=".05" />
     <param name="pointcloud_max_z" value="2.0" />
     <!-- data source to integrate (PointCloud2) -->
     <remap from="cloud_in" to="/asus/depth_registered/points" />
@@ -51,5 +54,5 @@
     <include file="$(find gavlab_atrv_2dnav)/launch/move_base_slam.xml" />
 
   <!-- Start the node that opens rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" required="true" output="screen" args="-d $(find pointcloud_shiz)/cfg/3dmap_move_base.vcg" /> 
+  <node name="rviz" pkg="rviz" type="rviz" required="true" output="screen" args="-d $(find pointcloud_shiz)/cfg/3dmap_move_base.vcg" />
 </launch>

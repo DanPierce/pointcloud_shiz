@@ -1,0 +1,4 @@
+<launch>
+  <!-- Start the node that opens rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" required="true" output="screen" args="-d $(find pointcloud_shiz)/cfg/3dmap.vcg" />
+</launch>
