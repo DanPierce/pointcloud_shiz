@@ -1,0 +1,12 @@
+<launch>
+  <!-- Start the node that opens rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" required="true" output="screen" args="-d $(find pointcloud_shiz)/cfg/map_repub.vcg" />
+
+    <!-- Start the map republisher -->
+    <node pkg="teleop_client" type="map_repub" name="map_repub"
+          output="screen" />
+
+    <!-- Start Joystick Nodes -->
+    <node pkg="joy" type="joy_node" name="joy_node" output="screen" />
+
+</launch>
