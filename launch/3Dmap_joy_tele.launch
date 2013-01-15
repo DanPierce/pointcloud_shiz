@@ -61,6 +61,13 @@
     <remap from="cmd_vel" to="atrv_node/cmd_vel" />
   </node>
 
+
+  <!-- Start the tf filter -->
+  <node pkg="misc_scripts" name="tf_filter" type="tf_filter.py" />
+
+  <!-- Start the mapper nodelet -->
+  <include file="$(find teleop_server)/launch/mapper_nodelet.launch" />
+  
   <!-- Start the node that opens rviz -->
   <!-- <node name="rviz" pkg="rviz" type="rviz" required="true" output="screen" args="-d $(find pointcloud_shiz)/cfg/3dmap.vcg" /> -->
 </launch>
