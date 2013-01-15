@@ -1,10 +1,17 @@
 <launch>
   <!-- Start the node that opens rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" required="true" output="screen" args="-d $(find pointcloud_shiz)/cfg/map_repub.vcg" />
+  <node name="rviz" pkg="rviz" type="rviz" required="true" output="screen" args="-d $(find pointcloud_shiz)/cfg/octomap.vcg" />
 
     <!-- Start the map republisher -->
     <node pkg="teleop_client" type="map_repub" name="map_repub"
           output="screen" />
+
+    <!-- Start Latency Reduction -->
+     <node pkg="teleop_client" type="latency_reduction.py" name="latency_reduction" output="screen" >
+      <param name="send_latency" type="double" value="2.0" />
+      <param name="receive_latency" type="double" value="0.0" />
+      <param name="use_one_latency" type="bool" value="True" />
+    </node>
 
     <!-- Start Joystick Nodes -->
     <node pkg="joy" type="joy_node" name="joy_node" output="screen" />
