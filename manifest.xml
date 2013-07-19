@@ -9,7 +9,7 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/pointcloud_shiz</url>
 
-  <depend package="openni_tracker"/>
+ <!-- <depend package="openni_tracker"/> -->
   <depend package="move_base"/>
 
 </package>
